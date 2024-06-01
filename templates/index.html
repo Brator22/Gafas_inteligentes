@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}"> 
+  <title>Sist Embe | Gafas inteligentes</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <header>
+      <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="logo">
+      <img id="hamburger-menu" class="hamburger-menu" src="{{ url_for('static', filename='images/icon-menu.svg') }}" alt="">
+    <nav id="navbar">
+      <div class="back"></div>
+      <div class="front">
+          <div class="close-img-container">
+            <img id="close-btn" src="{{ url_for('static', filename='images/icon-close-menu.svg') }}" alt="icon close">  
+         </div>
+         <ul>
+            <li>
+                <button id="features-btn" class="submenu-btn">Features <img src="{{ url_for('static', filename='images/icon-arrow-down.svg') }}" alt ="flecha abajo"></button>  
+              <ul id="features-ul" class="features-ul">
+                <li>
+                  <img src="{{ url_for('static', filename='images/icon-todo.svg') }}" alt="todo icon">
+                  <span>Todo list</span>
+                 </li>
+                <li>
+                  <img src="{{ url_for('static', filename='images/icon-calendar.svg') }}" alt="calendar icon">
+                  <span>Calendar</span>
+                </li>
+                <li>
+                  <img src="{{ url_for('static', filename='images/icon-reminders.svg') }}" alt="remainders icon">
+                  <span>Remainders</span>
+                </li>
+                <li>
+                 <img src="{{ url_for('static', filename='images/icon-planning.svg') }}" alt="planning icon">
+                 <span>Planning</span>
+                </li>
+              </ul>
+            </li>
+            <li>
+             <button id="company-btn" class="submenu-btn">Company <img src="{{ url_for('static', filename='images/icon-arrow-down.svg') }}" alt ="flecha abajo"></button>   
+            <ul id="company-ul" class="company-ul">
+               <li>History</li>
+               <li>Our Team</li>
+               <li>Blog</li>
+            </ul>
+            </li>
+            <li>Careers</li>
+            <li>About</li>
+          </u1>
+          <div class="btns-container">
+            <button class="login-btn">Login</button>
+            <button class="register-btn">Register</button>
+          </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="app">
+    <section>
+      <h2>Toma Fotografias</h2>
+      <p>Guarda tus momentos, crea recuerdos, mira tus videos y todo esto con comodidad y al alcance de la mano.</p>
+      <button @click="updateESPstatus">Tomar foto</button>
+      <div class="logos-container">
+        <img class="databiz" src="{{ url_for('static', filename='images/client-databiz.svg') }}" alt="databiz logo">
+        <img class="audio" src="{{ url_for('static', filename='images/client-audiophile.svg') }}" alt="audiophile logo">
+        <img class="meet" src="{{ url_for('static', filename='images/client-meet.svg') }}" alt="meet logo">
+        <img class="maker" src="{{ url_for('static', filename='images/client-maker.svg') }}" alt="maker logo">
+      </div>
+    </section>
+    <picture>
+      <source :srcset="espStatus" media="(max-width: 1023px)">
+      <source :srcset="espStatus" media="(min-width: 1024px)">
+      <img class="hero-image" :src="espStatus" alt=" hero image">
+    </picture> 
+  </main>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
